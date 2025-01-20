@@ -1,1 +1,1 @@
-فایل اصلی پروژه setting.py است
+فایل اصلی پروژه ceramicshams است

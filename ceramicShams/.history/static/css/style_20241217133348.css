@@ -1,0 +1,39 @@
+html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: wheat;
+    direction: rtl;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    background-color: whitesmoke;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center
+}
+
+.header ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-right: 20px;
+}
+
+.header ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+}
+.submenu{
+    
+}

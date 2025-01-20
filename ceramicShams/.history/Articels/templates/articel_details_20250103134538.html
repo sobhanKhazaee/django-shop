@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load custom_filters %}
+
+{% block title %}
+  جزئیات مقاله
+{% endblock %}
+
+{% block head_refrences %}
+  {% comment %} <link rel="stylesheet" href="{% static 'css/article_detail.css' %}?v=0.0.1" /> {% endcomment %}
+{% endblock %}
+
+{% block content %}
+
+{{articel.title}}
+
+
+{% endblock %}

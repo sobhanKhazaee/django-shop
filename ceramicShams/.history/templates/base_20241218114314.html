@@ -1,0 +1,26 @@
+loa
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        صفحه اصلی
+      {% endblock %}
+    </title>
+
+    {% block head_refrences %}
+    {% endblock %}
+  </head>
+  <body>
+    {% include 'layout/header.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block footer_refrences %}
+    {% endblock %}
+  </body>
+</html>

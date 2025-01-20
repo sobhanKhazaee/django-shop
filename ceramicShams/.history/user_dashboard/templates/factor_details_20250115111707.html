@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load render_partial %}
+{% load custom_filters %}
+
+{% block title %}
+  فاکتور های خرید
+{% endblock %}
+
+{% block content %}
+  <main class="dashboard">
+    <div class="sidebar">
+      {% render_partial 'user_dashboard.views.user_panel_menu_component' %}
+    </div>
+    <div class="content">
+      <section class="factors">
+        <h1>فاکتور های خرید</h1>
+        <table class="factors_table">
+          <tr>
+            <th> تصویر محصول </th>
+            <th> نام محصول </th>
+            <th> تعداد </th>
+            <th>مبلغ</th>
+          </tr> 
+          {% for order in orders %}
+            <tr>
+                <td><img src="{{ order.product.image.url }}" width="75px"></td>
+              <td>{{ order.product }}</td>
+              {% comment %} <td>{{ factor.payment_date|show_jalali_date }}</td> {% endcomment %}
+                <td>{{ order.count }}</td>
+              <td>{{ order.final_price|intcomma_fa }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+        <div>
+            <h3>مبلغ کل: {{ factortotal_price|intcomma_fa }}</h3>
+        </div>
+      </section>
+    </div>
+  </main>
+{% endblock %}

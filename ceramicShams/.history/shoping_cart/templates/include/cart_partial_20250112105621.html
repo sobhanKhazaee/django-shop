@@ -1,0 +1,42 @@
+{% load static %}
+{% load custom_filters %}
+
+<table class="cart_table">
+    <tr>
+      <th>نام محصول</th>
+      <th>عکس</th>
+      <th>قیمت واحد</th>
+      <th>تعداد</th>
+      <th>-</th>
+    </tr>
+
+      {% for order in orders %}
+        <tr id="cart_section">
+          <td>{{ order.product }}</td>
+          <td>
+            <img src="{{ order.product.image.url }}" alt="عکس محصول" class="cart_product_image"/>
+          </td>
+          <td>
+            <span>{{ order.product.price|intcomma_fa }}</span>
+          </td>
+          <td>
+            <div class="count_cart">
+              <button type="button" onclick="addCount({{order.product.id}} و)">+</button>&nbsp;
+              <span>{{ order.count|intcomma_fa }}</span>&nbsp;
+              <button  type="button" onclick="reduceCount({{order.product.id}})">-</button>
+            </div>
+          </td>
+          <td>
+            <span></span>
+            <button type="button" onclick="removeFromCart({{ order.product.id }})"> حذف از سبد خرید </button>
+          </td>
+        </tr>
+      {% endfor %}
+
+  </table>
+
+  <section class="total_price">
+    <span>هزینه قابل پرداخت :</span>
+    <span>{{ total_price|intcomma_fa }}</span>
+    <span>هزارتومان</span>
+  </section>

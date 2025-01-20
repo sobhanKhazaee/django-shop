@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load custom_filters %}
+
+{% block title %}
+  جزئیات مقاله
+{% endblock %}
+
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/articel_detail.css' %}?v=0.0.3" />
+{% endblock %}
+
+{% block content %}
+  <main class="detai_container">
+    <!-- Sidebar for categories -->
+    <div class="sidebar">
+      <h2>دسته‌بندی‌ها</h2>
+      <ul>
+        <li>
+          <a href="{% url 'articels_view' %}">همه</a>
+        </li>
+        {% for cat in categories %}
+          <li>
+            <a href="{% url 'articels_view_bycategory' category=cat.url %}">{{ cat.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="contexts">
+      <section class="title">
+        <h1>{{ articel.title }}</h1>
+      </section>
+      <section class="date">
+        <span>نویسنده:</span>
+        <span>{{ articel.author }}</span>
+        &nbsp;&nbsp; |
+        <span>نویسنده:</span>
+        <span>{{ articel.created_at|show_jalali_date }}</span>
+      </section>
+      <section class="articel_detail_img">
+        {% thumbnail articel.image '800x400' quality=80 as im %}
+        <img src="{{ im.url }}" alt="تصویر مقاله ۱" />
+        {% endthumbnail %}
+      </section>
+      <section class="text">
+        <p>{{ articel.full_text }}</p>
+      </section>
+      {% comment %}نظرات{% endcomment %}
+      <hr />
+      <section class="comment_count">
+        <h1>نظرات({{ comments.count }})</h1>
+      </section>
+      <hr />
+      <div>
+        {% if  %}{% endif %}
+        {% for comment in comments %}
+          <section>
+            <span>{{ comment.user.email }}</span>
+          </section>
+          <section>{{ comment.comment }}</section>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock %}

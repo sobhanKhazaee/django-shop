@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+lo
+{% block title %}
+  مقالات
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Sidebar for categories -->
+    <div class="sidebar">
+        <h2>دسته‌بندی‌ها</h2>
+        <ul>
+            <li><a href="#">دسته‌بندی ۱</a></li>
+            <li><a href="#">دسته‌بندی ۲</a></li>
+            <li><a href="#">دسته‌بندی ۳</a></li>
+            <li><a href="#">دسته‌بندی ۴</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content for articles -->
+    <div class="main-content">
+        <div class="article">
+            <h3>عنوان مقاله ۱</h3>
+            <img src="https://via.placeholder.com/800x400" alt="تصویر مقاله ۱">
+            <p>خلاصه‌ای از مقاله ۱ که شامل اطلاعات کوتاه درباره محتوا است.</p>
+        </div>
+
+        <div class="article">
+            <h3>عنوان مقاله ۲</h3>
+            <img src="https://via.placeholder.com/800x400" alt="تصویر مقاله ۲">
+            <p>خلاصه‌ای از مقاله ۲ که شامل اطلاعات کوتاه درباره محتوا است.</p>
+        </div>
+
+        <div class="article">
+            <h3>عنوان مقاله ۳</h3>
+            <img src="https://via.placeholder.com/800x400" alt="تصویر مقاله ۳">
+            <p>خلاصه‌ای از مقاله ۳ که شامل اطلاعات کوتاه درباره محتوا است.</p>
+        </div>
+    </div>
+</div>
+{% endblock  %}

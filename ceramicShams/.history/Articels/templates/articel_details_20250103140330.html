@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load custom_filters %}
+
+{% block title %}
+  جزئیات مقاله
+{% endblock %}
+
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/articel_detail.css' %}?v=0.0.2" />
+{% endblock %}
+
+{% block content %}
+  <main class="detai_container">
+    <div class="contexts">
+      <section>
+        <span>نویسنده:</span>
+        <span>{{ articel.author }}</span>
+        &nbsp;&nbsp; |
+        <span>نویسنده:</span>
+        <span>{{ articel.created_at|show_jalali_date }}</span>
+      </section>
+      <section>
+        {% thumbnail articel.image '800x400' quality=80 as im %}
+        <img src="{{ im.url }}" alt="تصویر مقاله ۱" class="articel_detail_img" />
+        {% endthumbnail %}
+      </section>
+    </div>
+  </main>
+{% endblock %}

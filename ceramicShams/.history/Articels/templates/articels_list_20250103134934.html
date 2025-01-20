@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load custom_filters %}
+
+{% block title %}
+  مقالات
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/articels_list.css' %}?v=0.0.2" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <!-- Sidebar for categories -->
+    <div class="sidebar">
+      <h2>دسته‌بندی‌ها</h2>
+      <ul>
+        {% for cat in categories %}
+          <li>
+            <a href="{% url 'articels_view_bycategory' category=cat.url %}">{{ cat.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Main content for articles -->
+    <div class="main-content">
+      {% for articel in articels %}
+        <div class="article">
+          <h3>{{ articel.title }}</h3>
+          <section>
+            <span>تاریخ انتشار :</span>
+            <span>{{ articel.created_at|show_jalali_date }}</span>
+            &nbsp;&nbsp;
+            <span>نویسنده:</span>
+            <span>{{ articel.author }}</span>
+          </section>
+          {% thumbnail articel.image '800x400' quality=80 as im %}
+          <img src="{{ im.url }}" alt="تصویر مقاله ۱" />
+          {% endthumbnail %}
+          <p>{{ articel.summary }}</p>
+          <div>
+            <a href="{% url "articel_details" p pk=articel.id %}">جزئیات مقاله</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="paginate">
+    <ul>
+      {% if page_obj.has_previous %}
+        <li>
+          <a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-chevron-right"></i></a>
+        </li>
+      {% endif %}
+      {% for pageNum in paginator.page_range %}
+        <li class="{% if pageNum == page_obj.number %}active_paginator{% endif %}">
+          <a href="?page={{ pageNum }}">{{ pageNum }}</a>
+        </li>
+      {% endfor %}
+      {% if page_obj.has_next %}
+        <li>
+          <a href="?page={{ page_obj.next_page_number }}"><i class="fas fa-chevron-left"></i></a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+{% endblock %}

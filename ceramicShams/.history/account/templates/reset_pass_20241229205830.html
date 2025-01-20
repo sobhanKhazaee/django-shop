@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  صفحه ثبت نام
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/register.css' %}?v=0.0.2" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form action="{% url 'reset_password' active_code=user.email_active_code %}" method="post" class="contactUsForm" novalidate>
+      {% csrf_token %}
+
+      <h1></h1>
+      <div>
+        <br />
+        <p>رمز عبور جدید را وارد کنید</p>
+        <br />
+      </div>
+
+      <div>
+        {{ reset_form.password.label_tag }}
+        {{ reset_form.password }}
+        {{ reset_form.password.errors }}
+        <button id="show_pass" type="button"><i class="fas fa-eye"></i></button>
+        <button id="hide_pass" type="button"><i class="fas fa-eye-slash"></i></button>
+      </div>
+
+      <div>
+        {{ reset_form.confirm_password.label_tag }}
+        {{ reset_form.confirm_password }}
+        {{ reset_form.confirm_password.errors }}
+        <button id="show_c_pass" type="button"><i class="fas fa-eye"></i></button>
+        <button id="hide_c_pass" type="button"><i class="fas fa-eye-slash"></i></button>
+      </div>
+
+      <button type="submit" class="submit_btn">ثبت نام</button>
+    </form>
+  </div>
+{% endblock %}
+
+{% block end_refrences %}
+  <script src="{% static 'js/register.js' %}"></script>
+{% endblock %}

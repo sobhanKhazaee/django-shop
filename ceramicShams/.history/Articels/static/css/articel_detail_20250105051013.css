@@ -1,0 +1,119 @@
+:root {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --background-color: #dfdfdf;
+    --text-color: #333333;
+}
+
+.detai_container {
+    display: flex;
+    width: 100%;
+    padding: 40px;
+    gap: 10px;
+
+}
+
+.sidebar {
+    width: 25%;
+    background-color: var(--secondary-color);
+    padding: 1em;
+    box-shadow: 0 0 5px var(--text-color);
+    border-radius: 5px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 0.5em 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.5em;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.contexts {
+    background: var(--secondary-color);
+    width: 75%;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.title {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.date {
+    padding: 0 10%;
+}
+
+.articel_detail_img {
+    padding: 10px 10%;
+}
+
+.articel_detail_img img {
+    width: 100%;
+    max-height: 350px;
+    border-radius: 5px;
+}
+.text{
+    padding: 10px 5%;
+}
+
+.comment_count{
+    padding: 10px;
+}
+.comment_box{
+    box-shadow: 0 0 5px var(--text-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: var(--background-color);
+}
+.comment_details{
+    display: flex;
+    justify-content: space-between;
+    direction: ltr;
+}
+
+#comment-form textarea{
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    height: 200px;
+    box-shadow: 0 0 5px var(--text-color);
+}
+#comment-form button[type="submit"]{
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--text-color);
+}
+
+.reply_comment{
+    text-align: left;
+}
+.reply_comment button{
+    cursor: pointer;
+    bavk
+}

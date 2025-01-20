@@ -1,0 +1,12 @@
+from jalali_date import date2jalali
+from django.http im
+
+
+PERSIAN_DIGITS = '۰۱۲۳۴۵۶۷۸۹'
+
+def english_to_persian(value):
+    return ''.join(PERSIAN_DIGITS[int(char)] if char.isdigit() else char for char in str(value))
+
+def show_jalali_date(value):
+    date = date2jalali(value).strftime(' %Y/%m/%d ')
+    return english_to_persian(date)

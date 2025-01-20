@@ -1,0 +1,13 @@
+:root {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --background-color: #dfdfdf;
+    --text-color: #333333;
+}
+
+.detai_container{
+    width: 100%;
+    height: auto;
+}
+
+contexts

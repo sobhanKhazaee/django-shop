@@ -1,0 +1,56 @@
+:root {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --background-color: #dfdfdf;
+    --text-color: #333333;
+}
+
+.dashboard {
+    padding: 10px 10%;
+    display: flex;
+    gap: 20px;
+  
+}
+
+.sidebar {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    width: 20;
+}
+
+.sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.active_sidebar {
+    box-shadow: 0 0 5px var(--text-color);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.editProfileForm {
+    background: whitesmoke;
+    width: 100%;
+    min-height: 400px;
+    border-radius: 5px;
+    padding: 20px;
+}
+.inp_feild {
+    display: block;
+    width: 100%;
+    height: 30px;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 0 0 5px wheat;
+    margin: 5px 0 15px 0;
+    padding: 10px;
+}

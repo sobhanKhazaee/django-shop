@@ -1,0 +1,62 @@
+ <!-- فیلتر دسته بندی -->
+ <h3>دسته‌بندی محصولات</h3>
+ <ul>
+     <li>
+         <a href="{% url 'filter_by_price' %}">همه</a>
+     </li>
+     {% for cat in categories %}
+     <li>
+         <a href="{% url 'filter_by_price' %}?category={{ cat.id }}{% for key, value in request.GET.items %}{% if key != 'category' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+             {{ cat.title }}
+         </a>
+     </li>
+     {% endfor %}
+ </ul>
+
+ <hr>
+
+ <!-- فیلتر برند -->
+ <h3>برندها</h3>
+ <ul>
+     <li>
+         <a href="{% url 'filter_by_price' %}">همه</a>
+     </li>
+     {% for brand in brands %}
+     <li>
+         <a href="{% url 'filter_by_price' %}?brand={{ brand.id }}{% for key, value in request.GET.items %}{% if key != 'brand' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+             {{ brand.brand_name }}
+         </a>
+     </li>
+     {% endfor %}
+ </ul>
+
+ <hr>
+
+ <!-- فیلتر بازه قیمت -->
+ <h3>بازه قیمت</h3>
+ <ul>
+     <form action="{% url 'filter_by_price' %}" method="get">
+         {% for key, value in request.GET.items %}
+             {% if key != 'price_range' %}
+                 <input type="hidden" name="{{ key }}" value="{{ value }}" />
+             {% endif %}
+         {% endfor %}
+         <li>
+             <label for="price_range">بازه قیمت:</label>
+             <input type="range" id="price_range" name="price_range" 
+                    min="{{ min_price }}" max="{{ max_price }}" step="10000" 
+                    value="{{ request.GET.price_range|default:max_price }}" 
+                    oninput="updatePriceOutput(this.value)" />
+             <output id="price_output">تا {{ request.GET.price_range|default:max_price|intcomma_fa }}</output>
+         </li>
+         <button type="submit">اعمال بازه قیمت</button>
+     </form>
+ </ul>
+
+ <script>
+     // به‌روزرسانی خروجی مقدار قیمت در هنگام تغییر اسلایدر
+     function updatePriceOutput(value) {
+         document.getElementById('price_output').textContent = 
+             'تا ' + new Intl.NumberFormat('fa-IR').format(value) + ' هزار تومان';
+     }
+ </script>

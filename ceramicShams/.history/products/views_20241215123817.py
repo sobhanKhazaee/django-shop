@@ -1,0 +1,7 @@
+from django.shortcuts import render
+from
+# Create your views here.
+
+def productsList(request):
+    products = 
+    render(request,'')

@@ -1,0 +1,7 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat();
+}
+.product_card{
+
+}

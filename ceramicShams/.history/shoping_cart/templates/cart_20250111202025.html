@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block title %}
+  سبد خرید
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}?v=0.0.1" />
+{% endblock %}
+
+{% block content %}
+  <main class="cart_content">
+    <table class="cart_table">
+      <tr>
+        <th>نام محصول</th>
+        <th>عکس</th>
+        <th>قیمت واحد</th>
+        <th>تعداد</th>
+        <th>-</th>
+      </tr>
+      {% for order in orders %}
+        <tr>
+          <td>{{ order.product }}</td>
+          <td>
+            <img src="{{ order.product.image.url }}" alt="عکس محصول" width="75" />
+          </td>
+          <td>
+            <span>{{ order.product.price|intcomma_fa }}</span>
+          </td>
+          <td>
+            <div class="count_cart">
+              <button>+</button>&nbsp;
+              <span>{{ order.count|intcomma_fa }}</span>&nbsp;
+              <button>-</button>
+            </div>
+          </td>
+          <td>
+            <button>حذف</button>
+          </td>
+        </tr>
+
+      {% endfor %}
+    </table>
+
+    <section>
+      <span> هزینه قابل پرداخت : </span>
+      <span> {{total_price|}} </span>
+    </section>
+  </main>
+{% endblock %}

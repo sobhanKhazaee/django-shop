@@ -1,0 +1,50 @@
+<header class="header">
+  <ul>
+    <li>
+      <a href="{% url 'index_page' %}">صفحه اصلی</a>
+    </li>
+    <li>
+      <a class="submenu_btn">
+        محصولات
+        <i class="fas fa-chevron-down"></i>
+      </a>
+      <div class="submenu">
+        <ul>
+          <li>
+            <a href="{% url 'all_products' %}">همه</a>
+          </li>
+          {% for cat in cats %}
+            <li>
+              <a href="{% url 'sort_by_cat' cat_id=cat.id %}">{{ cat.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+
+    <li>
+      <a href="{% url 'about_us' %}">درباره ما</a>
+    </li>
+    <li>
+      <a href="{% url 'contact_us' %}">تماس با ما</a>
+    </li>
+  </ul>
+
+
+  <ul>
+    if
+    {% if user.is_authenticated %}
+      <li>
+        <a href="{% url 'logout_page' %}">خروج</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="{% url "register_page" %}">ثبت نام</a>
+      </li>
+      <li>
+        <a href="{% url "login_page" %}">ورود</a>
+      </li>
+    {% endif %}
+  </ul>
+  
+</header>

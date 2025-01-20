@@ -1,0 +1,27 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 40px;
+}
+
+.product_card {
+    box-shadow: 0 0 5px black;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 300px;
+}
+.product_card img{
+    height: 80%;
+}
+.cardPrice{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: w;
+    text-shadow: 0 0 3px black;
+}

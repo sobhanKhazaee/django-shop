@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}
+  مقالات
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/articels_list.css' %}?v=0.0.1" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <!-- Sidebar for categories -->
+    <div class="sidebar">
+      <h2>دسته‌بندی‌ها</h2>
+      <ul>
+        <li>
+          <a href="#">دسته‌بندی ۱</a>
+        </li>
+        <li>
+          <a href="#">دسته‌بندی ۲</a>
+        </li>
+        <li>
+          <a href="#">دسته‌بندی ۳</a>
+        </li>
+        <li>
+          <a href="#">دسته‌بندی ۴</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main content for articles -->
+    <div class="main-content">
+      {% for articel in articels %}
+        <div class="article">
+          <h3>{{ articel.title }}</h3>
+          <section>
+            <span>تاریخ انتشار :</span>
+            <span>
+                {{articel.created_at}}
+            </span>
+            &nbsp;&nbsp;
+            
+          </section>
+          {% thumbnail articel.image '800x400' quality=80 as im %}
+          <img src="{{ im.url }}" alt="تصویر مقاله ۱" />
+          {% endthumbnail %}
+          <p>{{ articel.summary }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

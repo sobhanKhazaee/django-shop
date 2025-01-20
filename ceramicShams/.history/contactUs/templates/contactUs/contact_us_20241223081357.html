@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% comment %}عنوان url{% endcomment %}
+{% block title %}
+  ارتباط با ما
+{% endblock %}
+
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/contactUs.css' %}?v=0.0.1" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form action="" method="post" class="contactUsForm">
+      {{ contact_form.بع }}
+    </form>
+  </div>
+{% endblock %}

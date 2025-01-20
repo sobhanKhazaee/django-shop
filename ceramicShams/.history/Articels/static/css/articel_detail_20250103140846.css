@@ -1,0 +1,39 @@
+:root {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --background-color: #dfdfdf;
+    --text-color: #333333;
+}
+
+.detai_container {
+    width: 100%;
+    height: auto;
+    padding: 10px 10%;
+}
+
+.contexts {
+    background: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 0 5px var(--text-color);
+    min-height: 400px;
+    padding: 10px;
+}
+
+.title {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.date {
+    padding: 0 10%;
+}
+
+.articel_detail_img {
+    padding: 10px 10%;
+}
+
+.articel_detail_img img {
+    width: 100%;
+    max-height: 350px;
+    border-radius: 5px;
+}

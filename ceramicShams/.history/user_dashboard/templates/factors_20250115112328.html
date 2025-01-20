@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load render_partial %}
+{% load custom_filters %}
+
+{% block title %}
+  فاکتور های خرید
+{% endblock %}
+
+{% block content %}
+  <main class="dashboard">
+    <div class="sidebar">
+      {% render_partial 'user_dashboard.views.user_panel_menu_component' %}
+    </div>
+    <div class="content">
+      <section class="factors">
+        <h1>فاکتور های خرید</h1>
+        br
+        <table class="factors_table">
+          <tr>
+            <th>شماره فاکتور</th>
+            <th>تاریخ</th>
+            <th>مبلغ</th>
+            <th>_</th>
+          </tr>
+          {% for factor in carts %}
+            <tr>
+              <td>{{ factor.id }}</td>
+              <td>{{ factor.payment_date|show_jalali_date }}</td>
+              <td>{{ factor.total_price|intcomma_fa }}</td>
+              <td>
+                <a href="{% url "factor_details" pk=factor.id  %}"> جزئیات </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </section>
+    </div>
+  </main>
+{% endblock %}

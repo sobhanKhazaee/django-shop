@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  جزئیات محصول
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/productsList.css' %}?v=0.0.2" />
+{% endblock %}
+
+{% block content %}
+  <main class="productDetails">
+    <div class="detail_box">
+      <div class="box_img">
+        <img src="" alt="" />
+      </div>
+      <div class="box_explain">
+        <label>نام :</label>
+        <span>  </span>
+      </div>
+    </div>
+  </main>
+{% endblock %}

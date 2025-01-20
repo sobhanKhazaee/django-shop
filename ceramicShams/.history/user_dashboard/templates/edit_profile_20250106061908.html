@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block title %}
+  ویرایش اطلاعات
+{% endblock %}
+
+{% block content %}
+  <main class="dashboard">
+    <div class="sidebar">
+      {% render_partial 'user_dashboard.views.user_panel_menu_component' %}
+    </div>
+    <div class="content">
+      <form action="{% url 'edit_profile' %}" method="post" class="editProfileForm" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img src="st" alt="">
+        {{ form }}
+        <button type="submit" class="submit_btn">ویرایش اطلاعات</button>
+      </form>
+    </div>
+  </main>
+{% endblock %}

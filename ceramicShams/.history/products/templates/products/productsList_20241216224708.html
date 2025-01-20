@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  لیست محصولات
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/productsList.css' %}?v=0.0.3" />
+{% endblock %}
+
+{% block content %}
+  <div class="site_info">
+    <section>
+      <label>رضایت کاربران از محصولات :</label>
+      <span>امتیاز</span>
+      <span>{{ allProductsRate.rate__avg }}</span>
+      <span>از 5</span>
+    </section>
+    <span>&nbsp;&nbsp; | &nbsp;&nbsp;</span>
+    <section>
+      <label>با</label>
+      <span>{{ productsNumber }}</span>
+      <span>محصول منتشر شده</span>
+    </section>
+  </div>
+  <div class="container">
+    {% for product in products %}
+      {% if product.is_active %}
+        <a href="{{ product.get_absolute_url }}" class="product_card">
+          <img src="" alt="{{ product.name }}" />
+          <h2>{{ product.name }}</h2>
+          <div>
+            <span class="cardPrice">{{ product.price|intcomma }}</span>
+            <span>تومان</span>
+          </div>
+        </a>
+      {% endif %}el
+    {% endfor %}
+  </div>
+{% endblock %}

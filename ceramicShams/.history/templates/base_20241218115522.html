@@ -1,0 +1,27 @@
+{% load render_partial %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        صفحه اصلی
+      {% endblock %}
+    </title>
+    {% comment %}لینک های هد{% endcomment %}
+    {% include 'layout/head_refrences.html' %}
+  </head>
+  <body>
+    {% comment %}هدر سایت{% endcomment %}
+    {% include 'layout/header.html' %}
+
+    {% comment %}محتوای صفحه{% endcomment %}
+    {% block content %}
+    {% endblock %}
+
+    {% comment %}ارجاعات انتهای فوتر{% endcomment %}
+    {% include 'layout/_refrences.html' %}
+  </body>
+</html>

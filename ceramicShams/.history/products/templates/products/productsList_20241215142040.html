@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  لیست محصولات
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/productsList.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main class="container">
+    {% for product in products %}
+      <div class="product_card">
+        <img src="{{ product.image }}" alt="{{ product.name }}" />
+        <h2>{{ product.name }}</h2>
+        <div>
+          <span class="cardPrice">{{ product.price|floatcomma   }}</span>
+          <span>تومان</span>
+        </div>
+      </div>
+    {% endfor %}
+  </main>
+{% endblock %}

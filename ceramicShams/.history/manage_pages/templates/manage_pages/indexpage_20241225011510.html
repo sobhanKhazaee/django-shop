@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  صفحه اصلی
+
+  <img src="" alt="" />
+  {% if banners %}
+    {% for banner in banners %}
+      <div class="banner">
+        <a href="{{ banner.link }}">
+          <img src="{{ banner.image.url }}" alt="{{ banner.title }}" width="600" /></a>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>هیچ بنری برای نمایش وجود ندارد.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="homepage">
+    <!-- Product Slider -->
+    <div class="product-slider">
+      <div class="slider-container" id="slider-container">
+        {% for product in products %}
+          {% if product.is_active %}
+            <a href="{{ product.get_absolute_url }}" class="slider-item">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+              <h2>{{ product.name }}</h2>
+              <div>
+                <span class="cardPrice">{{ product.price|intcomma }}</span>
+                <span>تومان</span>
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <button class="slider-btn" id="prev-btn">&#10094;</button>
+      <button class="slider-btn" id="next-btn">&#10095;</button>
+    </div>
+
+    <!-- Banner Section -->
+    <section class="banners">
+      {% if banners %}
+        {% for banner in banners %}
+          <div class="banner">
+            <a href="{{ banner.link }}"><img src="{{ banner.image.url }}" alt="{{ banner.title }}" class="banner-image" width="200" /></a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>هیچ بنری برای نمایش وجود ندارد.</p>
+      {% endif %}
+    </section>
+  </div>
+{% endblock %}
+
+{% block end_refrences %}
+  <script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

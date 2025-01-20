@@ -1,0 +1,73 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 40px 10%;
+}
+
+.product_card {
+    box-shadow: 0 0 5px black;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 300px;
+    background: whitesmoke;
+    text-decoration: none;
+    color: black;
+}
+
+.product_card img {
+    height: 200px;
+    width: 100%;
+}
+
+.cardPrice {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: wheat;
+    text-shadow: 0 0 5px black;
+}
+
+.site_info {
+    display: flex;
+    align-items: center;
+}
+
+.site_info section {
+    padding: 5px;
+}
+
+.paginate {
+   display: flex ;
+   justify-content: center;
+   align-items: center;
+}
+
+.paginate ul {
+    display: flex;
+    width: fit-content;
+    gap: 15px;
+    list-style: none;
+
+}
+
+.paginate ul li {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.paginate ul li a {
+    text-decoration: none;
+    color: black;
+}
+.active_paginator{
+    padding: 12px ;
+}

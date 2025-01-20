@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load custom_filters %}
+
+{% block title %}
+  جزئیات مقاله
+{% endblock %}
+
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/article_detail.css' %}?v=0.0.1" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <!-- Sidebar for categories -->
+    {% comment %} <div class="sidebar">
+      <h2>دسته‌بندی‌ها</h2>
+      <ul>
+        {% for cat in categories %}
+          <li>
+            <a href="{% url 'articels_view_bycategory' category=cat.url %}">{{ cat.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div> {% endcomment %}
+
+    <!-- Main content for article details -->
+    <div class="main-content">
+      <div class="article-detail">
+        <h1>{{ article.title }}</h1>
+        <section>
+          <span>تاریخ انتشار :</span>
+          <span>{{ article.created_at | show_jalali_date }}</span>
+          &nbsp;&nbsp;
+          <span>نویسنده:</span>
+          <span>{{ article.author }}</span>
+        </section>
+        {% thumbnail article.image '1200x600' quality=90 as im %}
+        <img src="{{ im.url }}" alt="{{ article.title }}" />
+        {% endthumbnail %}
+        <p>{{ article.full_text | safe }}</p>
+
+        <!-- Tags -->
+        <div class="tags">
+          <h3>برچسب‌ها:</h3>
+          <ul>
+            {% for tag in article.tags %}
+              <li><a href="{% url 'articels_view_bytag' tag=tag.url %}">{{ tag.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} <!-- Navigation links -->
+  <div class="navigation">
+    {% if previous_article %}
+      <a href="{% url 'article_detail' previous_article.id %}" class="previous">&larr; {{ previous_article.title }}</a>
+    {% endif %}
+    {% if next_article %}
+      <a href="{% url 'article_detail' next_article.id %}" class="next">{{ next_article.title }} &rarr;</a>
+    {% endif %}
+  </div> {% endcomment %}
+{% endblock %}

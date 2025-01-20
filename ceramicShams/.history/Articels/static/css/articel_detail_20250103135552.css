@@ -1,0 +1,17 @@
+:root {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --background-color: #dfdfdf;
+    --text-color: #333333;
+}
+
+.detai_container {
+    width: 100%;
+    height: auto;
+    padding: 10px 10%;
+}
+
+.contexts {
+    background: var(--secondary-color);
+    border-radius: 10px;
+}

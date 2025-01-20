@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block title %}
+  پنل کاربری
+{% endblock %}
+
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}?v=0.0.1" />
+{% endblock %}
+
+{% block content %}
+  <main class="dashboard">
+    <div class="sidebar">
+      {% render_partial 'user_dashboard.views.user_panel_menu_component' %}
+    </div>
+    <div class="content">
+      <form action="ur" method="post" class="editProfileForm">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="submit_btn"> ویرایش اطلاعات </button>
+      </form>
+    </div>
+  </main>
+{% endblock %}

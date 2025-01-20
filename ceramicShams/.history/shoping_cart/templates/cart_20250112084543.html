@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block title %}
+  سبد خرید
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}?v=0.0.1" />
+{% endblock %}
+
+{% block content %}
+  {% if orders %}
+    <main class="cart_content">
+      {% include 'include/cart_partial.html' %}
+    </main>
+  {% else %}
+    <section class="empty_cart">
+      <h1>سبد خرید شما خالی است</h1>
+    </section>
+  {% endif %}
+{% endblock %}
+
+{% block end_refrences %}
+  <script src="{% static 'js/cart.js' %}?v=0.0.5"></script>
+{% endblock %}

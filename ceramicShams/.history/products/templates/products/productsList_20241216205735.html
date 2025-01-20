@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  لیست محصولات
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/productsList.css' %}?v=0.0.2" />
+{% endblock %}
+
+{% block content %}
+<div>
+<h3>
+  
+</h3>
+
+</div>
+  <div class="container">
+    {% for product in products %}
+      <a href="{{ product.get_absolute_url }}" class="product_card">
+        <img src="" alt="{{ product.name }}" />
+        <h2>{{ product.name }}</h2>
+        <div>
+          <span class="cardPrice">{{ product.price|intcomma }}</span>
+          <span>تومان</span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}

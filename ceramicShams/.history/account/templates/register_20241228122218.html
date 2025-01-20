@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  صفحه ثبت نام
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form action="{% url 'register_page' %}" method="post" class="contactUsForm" novalidate>
+      {% csrf_token %}
+
+      <h1>فرم ثبت نام</h1>
+
+      <div>
+        {{ register_form.email.label_tag }}
+        {{ register_form.email }}
+        <p class="error_massage">{{ register_form.email.errors }}</p>
+      </div>
+
+      <div>
+        {{ register_form.password.label_tag }}
+        {{ register_form.password }}
+        {{ register_form.password.errors }}
+        <button id="show_pass"><i class="fas fa-eye"></i></button>
+        <button id="hide_pass"></button>
+
+      </div>
+
+      <div>{{ register_form.confirm_password.label_tag }}
+        {{ register_form.confirm_password }}
+        {{ register_form.confirm_password.errors }}
+      cl
+      </div>
+
+      <button type="submit" class="submit_btn">ثبت نام</button>
+    </form>
+  </div>
+{% endblock %}

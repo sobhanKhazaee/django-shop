@@ -1,0 +1,12 @@
+<div class="sid">
+  <ul>
+    <li>
+      <a href="{% url 'all_products' %}">همه</a>
+    </li>
+    {% for cat in categories %}
+      <li>
+        <a href="{% url 'sort_by_cat' cat_id=cat.id %}">{{ cat.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

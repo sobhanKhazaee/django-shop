@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فعال‌سازی حساب کاربری</title>
+</head>
+<body style="font-family: Tahoma, Arial, sans-serif; direction: rtl; text-align: right; background-color: #f9f9f9; padding: 20px;">
+    <div style="max-width: 600px; margin: auto; background: white; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+        <h2 style="color: #333;">سلام {{ user.user_name }} عزیز،</h2>
+        <p>خوش آمدید! لطفاً برای فعال‌سازی حساب کاربری خود روی دکمه زیر کلیک کنید:</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="{{ {% url "active-account"  %} }}" style="background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">فعال‌سازی حساب</a>
+        </div>
+        <p>اگر این ایمیل برای شما ارسال نشده است، لطفاً این پیام را نادیده بگیرید.</p>
+        <p style="color: #888;">با احترام،<br>تیم پشتیبانی</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% load custom_filters %}
+{% comment %}فیلتر دسته بندی{% endcomment %}
+<h3>دسته بندی محصولات</h3>
+<ul>
+  <li>
+    <a href="{% url 'all_products' %}">همه</a>
+  </li>
+  {% for cat in categories %}
+    <li>
+      <a href="{% url 'sort_by_cat' cat_id=cat.id %}">{{ cat.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+<br>
+<hr>
+<br>
+{% comment %}فیلتر برند{% endcomment %}
+<h3>برند ها</h3>
+<ul>
+  <li>
+    <a href="{% url 'all_products' %}">همه</a>
+  </li>
+  {% for brand in brands %}
+    <li>
+      <a href="{% url 'sortByBrand' brand_id=brand.id %}">{{ brand.brand_name }}</a>
+    </li>
+  {% endfor %}
+</ul>
+{% comment %}فیلتر بازه قیمت{% endcomment %}
+<br>
+<hr>
+<br>
+<h3>بازه قیمت</h3>
+<ul>
+    <form action=""></form>
+  <li>
+    <label for="price_range">بازه قیمت:</label>
+    <input type="range" id="price_range" name="price_range" min="{{ min_price }}" max="{{ max_price }}" step="10000" value ="{{ max_price}}" oninput="document.getElementById('price_output').value = formatPrice(this.value)" />
+    <output id="price_output">
+      تا
+      {{ max_price|intcomma_fa }}
+    </output>
+  </li>
+</ul>
+<script>
+  function formatPrice(value) {
+    return 'تا' + new Intl.NumberFormat('fa-IR').format(value) + ' هزار تومان'
+  }
+</script>

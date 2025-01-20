@@ -1,0 +1,32 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        صفحه اصلی
+      {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=0.0.1" />
+    <link rel="stylesheet" href="{% static 'fontawesome5/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'fontawesome5/css/v4-shims.min.css' %}" />
+   
+    {% block head_refrences %}
+
+    {% endblock %}
+  </head>
+  <body>
+    {% include 'layout/header.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/base' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+
+
+<td>{{ order.product }}</td>
+<td>
+  <img src="{{ order.product.image.url }}" alt="عکس محصول" width="75" />
+</td>
+<td>
+  <span>{{ order.product.price|intcomma_fa }}</span>
+</td>
+<td>
+  <div class="count_cart">
+    <button>+</button>&nbsp;
+    <span>{{ order.count|intcomma_fa }}</span>&nbsp;
+    <button>-</button>
+  </div>
+</td>
+<td>
+  <span></span>
+  <button type="button" onclick="removeFromCart({{ order.product.id }})">حذف</button>
+</td>

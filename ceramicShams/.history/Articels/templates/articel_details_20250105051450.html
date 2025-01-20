@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load custom_filters %}
+
+{% block title %}
+  جزئیات مقاله
+{% endblock %}
+
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/articel_detail.css' %}?v=0.0.6" />
+{% endblock %}
+
+{% block content %}
+  <main class="detai_container">
+    <!-- Sidebar for categories -->
+    <div class="sidebar">
+      <h2>دسته‌بندی‌ها</h2>
+      <ul>
+        <li>
+          <a href="{% url 'articels_view' %}">همه</a>
+        </li>
+        {% for cat in categories %}
+          <li>
+            <a href="{% url 'articels_view_bycategory' category=cat.url %}">{{ cat.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="contexts">
+      <section class="title">
+        <h1>{{ articel.title }}</h1>
+      </section>
+      <section class="date">
+        <span>نویسنده:</span>
+        <span>{{ articel.author }}</span>
+        &nbsp;&nbsp; |
+        <span>نویسنده:</span>
+        <span>{{ articel.created_at|show_jalali_date }}</span>
+      </section>
+      <section class="articel_detail_img">
+        {% thumbnail articel.image '800x400' quality=80 as im %}
+        <img src="{{ im.url }}" alt="تصویر مقاله ۱" />
+        {% endthumbnail %}
+      </section>
+      <section class="text">
+        <p>{{ articel.full_text }}</p>
+      </section>
+      {% comment %}نظرات{% endcomment %}
+      <hr />
+      <section class="comment_count">
+        <h1>نظرات({{ comments.count }})</h1>
+      </section>
+      <hr /><br />
+
+      <div id="comments-section">
+        {% if comments %}
+          {% for comment in comments %}
+            <div class="comment_box">
+              <section class="comment_details">
+                <span>{{ comment.created_at|show_jalali_date }}</span>
+                <span>{{ comment.user.username }}</span>
+              </section>
+              <br />
+              <section>{{ comment.comment }}</section>
+              <section class="reply_comment">
+                <button class="reply_butt">
+                  <span>پاسخ</span>
+                  <i class="fas fa-reply"></i>
+                </button>
+              </section>
+            </div>
+            {% for answer in comment.articelcomments_set.all %}
+              <div class="comment_box" style="margin-right: 40px;">
+                <section class="comment_details">
+                  <span>{{ answer.created_at|show_jalali_date }}</span>
+                  <span>{{ answer.user.username }}</span>
+                </section>
+                <br />
+                <section>{{ answer.comment }}</section>
+              </div>
+            {% endfor %}
+          {% endfor %}
+        {% else %}
+          <p id="no_comment">هنوز نظری برای این مقاله ثبت نشده</p>
+        {% endif %}
+      </div>
+      <hr />
+      <section>
+        <br />
+        <h1>ثبت نظر</h1>
+        <br />
+        {% if user.is_authenticated %}
+          <form id="comment-form">
+            {% csrf_token %}
+            <input type="hidden" name="parent_id" />
+            <input type="hidden" name="article_id" value="{{ articel.id }}" />
+            <textarea name="comment" id="comment" rows="4" placeholder="نظر خود را وارد کنید..."></textarea>
+            <button type="submit">ارسال نظر</button>
+          </form>
+          <br />
+          <div id="response"></div>
+        {% else %}
+          <p>جهت ثبت نظر ابتدا وارد حساب کاربری خود شوید</p>
+        {% endif %}
+      </section>
+    </div>
+  </main>
+{% endblock %}
+
+{% block end_refrences %}
+  <script src="{% static 'js/submitComment.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'owl/css/owl.theme.default.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'owl/css/owl.carousel.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/index.css' %}?v=0.0.2" />
+{% endblock %}
+
+{% block content %}
+  <div class="homepage">
+    <!-- Banner Section -->
+    <section class="banners">
+      {% if banners %}
+        {% for banner in banners %}
+          {% if banner.position == 'home_top' %}
+            <div class="banner">
+              <a href="{{ banner.link }}">
+                {% thumbnail banner.image '1000x400' quality=50 as im %}
+                <img src="{{ im.url }}" class="banner-image" />
+                {% endthumbnail %}
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p>هیچ بنری برای نمایش وجود ندارد.</p>
+      {% endif %}
+    </section>
+  </div>
+
+  <!-- Product Slider -->
+  <div class="product-slider">
+    <div class="owl-carousel ModuleProduct1" id="ModuleProduct1">
+      {% for product in products %}
+        {% if product.is_active %}
+          <a href="{{ product.get_absolute_url }}" class="slider-item">
+            {% thumbnail banner.image '1000x400' quality=50 as im %}
+            <img src="{{ .url }}" alt="{{ product.name }}" width="300" />
+            {% endthumbnail %}
+            <h2>{{ product.name }}</h2>
+            <div>
+              <span class="cardPrice">{{ product.price }}</span>
+              <span>تومان</span>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block end_refrences %}
+  <script src="{% static 'owl/js/owl.carousel.js' %}"></script>
+  <script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

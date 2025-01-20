@@ -1,0 +1,23 @@
+html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: wheat;
+    direction: rtl;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    background-color: whitesmoke;
+    height: 80px;
+    width: 100%;
+
+}
+.header ul{
+list-style: none;
+}

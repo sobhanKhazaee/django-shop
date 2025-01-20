@@ -1,0 +1,18 @@
+:root {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --background-color: #dfdfdf;
+    --text-color: #333333;
+}
+
+.cart_content{
+    width: 100%;
+    height: auto;
+    padding: 40px 10%;
+}
+.cart_table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    border
+}

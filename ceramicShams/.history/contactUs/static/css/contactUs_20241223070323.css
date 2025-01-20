@@ -1,0 +1,10 @@
+.contactUsForm{
+    background: whitesmoke;
+    width: 300px;
+    min-height: 400px;
+}
+.container{
+    width: 100%;
+    height: auto;
+    padding: 20px 20;
+}

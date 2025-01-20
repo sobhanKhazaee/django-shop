@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block title %}
+  سبد خرید
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}?v=0.0.1" />
+{% endblock %}
+
+{% block content %}
+{% if orders %}
+    <main class="cart_content">
+  {% include "include/cart_partial.html" %}
+
+      <table class="cart_table">
+        <tr>
+          <th>نام محصول</th>
+          <th>عکس</th>
+          <th>قیمت واحد</th>
+          <th>تعداد</th>
+          <th>-</th>
+        </tr>
+
+        {% for order in orders %}
+          <tr id="cart_section">
+            <td>{{ order.product }}</td>
+            <td>
+              <img src="{{ order.product.image.url }}" alt="عکس محصول" width="75" />
+            </td>
+            <td>
+              <span>{{ order.product.price|intcomma_fa }}</span>
+            </td>
+            <td>
+              <div class="count_cart">
+                <button>+</button>&nbsp;
+                <span>{{ order.count|intcomma_fa }}</span>&nbsp;
+                <button>-</button>
+              </div>
+            </td>
+            <td>
+              <span></span>
+              <button type="button" onclick="removeFromCart({{ order.product.id }})">حذف</button>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+
+      <section class="total_price">
+        <span>هزینه قابل پرداخت :</span>
+        <span>{{ total_price|intcomma_fa }}</span>
+        <span>هزارتومان</span>
+      </section>
+    </main>
+  {% else %}
+    <section class="empty_cart">
+      <h1>سبد خرید شما خالی است</h1>
+    </section>
+  {% endif %} 
+{% endblock %}
+
+{% block end_refrences %}
+  <script src="{% static 'js/cart.js' %}?v=0.0.5"></script>
+{% endblock %}

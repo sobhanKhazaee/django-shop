@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="homepage">
+    <!-- Product Slider -->
+    <div class="product-slider">
+      <div class="slider-container" id="slider-container">
+        <div class="slider-item">محصول 1</div>
+        <div class="slider-item">محصول 2</div>
+        <div class="slider-item">محصول 3</div>
+      </div>
+      <button class="slider-btn" id="prev-btn">&#10094;</button>
+      <button class="slider-btn" id="next-btn">&#10095;</button>
+    </div>
+
+    <!-- Banner Section -->
+    <section class="banners">
+      {% if banners %}
+        {% for banner in banners %}
+          <div class="banner">
+            <a href="{{ banner.link }}"><img src="{{ banner.image.url }}" alt="{{ banner.title }}" class="banner-image" /></a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>هیچ بنری برای نمایش وجود ندارد.</p>
+      {% endif %}
+    </section>
+  </div>
+{% endblock %}
+
+{% block end_refrences %}
+  <script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

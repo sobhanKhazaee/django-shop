@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% load render_partial %}
+
+{% block title %}
+  لیست محصولات
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/productsList.css' %}?v=0.0.7" />
+{% endblock %}
+
+{% block content %}
+  <div class="stroe
+  ">
+    <div class="sidebar_filter">
+      {% render_partial 'products.views.sideBar_filter' %}
+    </div>
+    <div class="container">
+      {% for product in products %}
+        {% if product.is_active %}
+          <a href="{{ product.get_absolute_url }}" class="product_card">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+            <h2>{{ product.name }}</h2>
+            <div>
+              <span class="cardPrice">{{ product.price|intcomma_fa }}</span>
+              <span>تومان</span>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+
+  {% comment %}صفحه بندی محصولات با پیجینیتور{% endcomment %}
+  <div class="paginate">
+    <ul>
+      {% if page_obj.has_previous %}
+        <li>
+          <a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-chevron-right"></i></a>
+        </li>
+      {% endif %}
+      {% for pageNum in paginator.page_range %}
+        <li class="{% if pageNum == page_obj.number %}active_paginator{% endif %}">
+          <a href="?page={{ pageNum }}">{{ pageNum }}</a>
+        </li>
+      {% endfor %}
+      {% if page_obj.has_next %}
+        <li>
+          <a href="?page={{ page_obj.next_page_number }}"><i class="fas fa-chevron-left"></i></a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+{% endblock %}

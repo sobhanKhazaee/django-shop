@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="homepage">
+
+    
+
+    <!-- Product Slider -->
+    <div class="product-slider">
+      <div class="slider-container" id="slider-container">
+        {% for product in products %}
+          {% if product.is_active %}
+            <a href="{{ product.get_absolute_url }}" class="slider-item">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" width="300" />
+              <h2>{{ product.name }}</h2>
+              <div>
+                <span class="cardPrice">{{ product.price }}</span>
+                <span>تومان</span>
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <button class="slider-btn" id="next-btn">&#10095;</button>
+      <button class="slider-btn" id="prev-btn">&#10094;</button>
+    </div>
+
+
+{% endblock %}
+
+{% block end_refrences %}
+  <script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,24 @@
+:root {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --background-color: #dfdfdf;
+    --text-color: #333333;
+}
+
+.dashboard {
+    padding: 10px 10%;
+    display: flex;
+    gap: 20px;
+
+}
+.sidebar ul{
+    list-style: none;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 20;
+}
+.sidebar ul li a{
+text-decoration: none;
+color: var(--primary-color);
+}

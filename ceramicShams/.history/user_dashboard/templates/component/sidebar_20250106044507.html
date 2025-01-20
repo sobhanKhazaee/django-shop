@@ -1,0 +1,23 @@
+{% load static %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}?v=0.0.2" />
+{% endblock %}
+
+<ul>
+  <li>
+    <a href="{% url 'dashboard_page' %}" class="{% if request.resolver_match.url_name == 'dashboard_page' %}active_sidebar{% endif %}">اطلاعات</a>
+  </li>
+  <li>
+    <a href="{% url 'edit_profile' %}" class="{% if request.resolver_match.url_name == 'edit_profile' %}active_sidebar{% endif %}">ویرایش اطلاعات</a>
+  </li>
+  <li>
+    <a href="{% url 'edit_profile' %}" class="{% if request.resolver_match.url_name == 'edit_profile' %}active_sidebar{% endif %}">ویرایش اطلاعات</a>
+  </li>
+
+  <li>
+    <a href="" class="">سفارشات</a>
+  </li>
+  <li>
+    <a href="" class="">تیکت ها</a>
+  </li>
+</ul>

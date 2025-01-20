@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block title %}
+  پنل کاربری
+{% endblock %}
+
+
+
+{% block content %}
+  <main class="dashboard">
+    <div class="sidebar">
+      {% render_partial 'user_dashboard.views.user_panel_menu_component' %}
+    </div>
+    <div class="content"></div>
+  </main>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  لیست محصولات
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/productsList.css' %}[15/Dec/2024 19:44:44] "GET /static/css/productsList.css%20%3Fv%3D0.0.1 HTTP/1.1" 404 1907" />
+{% endblock %}
+
+{% block content %}
+  <main class="container">
+    {% for product in products %}
+      <a href="" class="product_card">
+        <img src="{{ product.image }}" alt="{{ product.name }}" />
+        <h2>{{ product.name }}</h2>
+        <div>
+          <span class="cardPrice">{{ product.price|intcomma }}</span>
+          <span>تومان</span>
+        </div>
+      </a>
+    {% endfor %}
+  </main>
+{% endblock %}

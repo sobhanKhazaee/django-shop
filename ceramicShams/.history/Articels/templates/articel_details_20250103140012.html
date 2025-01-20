@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load custom_filters %}
+
+{% block title %}
+  جزئیات مقاله
+{% endblock %}
+
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/articel_detail.css' %}?v=0.0.2" />
+{% endblock %}
+
+{% block content %}
+  <main class="detai_container">
+    <div class="contexts">
+      <section>
+        <span> نویسنده: </span>
+        <span> {{articel.author}} </span>
+        &nb
+      </section>
+    </div>
+  </main>
+{% endblock %}

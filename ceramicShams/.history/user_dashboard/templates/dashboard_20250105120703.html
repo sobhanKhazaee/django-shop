@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+  پنل کاربری
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2>پروفایل</h2>
+        <p>نام: {{ user.name }}</p>
+        <p>ایمیل: {{ user.email }}</p>
+        <p>تاریخ عضویت: {{ user.date_joined }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h2>تیکت‌ها</h2>
+        <table class="table">
+        <thead>
+            <tr>
+            <th>شماره تیکت</th>
+            <th>موضوع</th>
+            <th>تاریخ</th>
+            <th>وضعیت</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.subject }}</td>
+                <td>{{ ticket.created_at }}</td>
+                <td>{{ ticket.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

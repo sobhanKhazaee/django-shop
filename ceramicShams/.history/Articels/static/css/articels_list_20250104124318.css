@@ -1,0 +1,118 @@
+:root {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --background-color: #dfdfdf;
+    --text-color: #333333;
+}
+
+
+
+.container {
+    display: flex;
+    width: 100%;
+    padding: 40px;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: var(--secondary-color);
+    padding: 1em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 0.5em 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.5em;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.main-content {
+    width: 75%;
+    padding: 1em;
+}
+
+.article {
+    background-color: var(--secondary-color);
+    margin-bottom: 1em;
+    padding: 1em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+.article section{
+    padding: 10px 5px;
+}
+
+.article h3 {
+    color: var(--primary-color);
+}
+
+.article img {
+    width: 100%;
+    max-height: 400px;
+    border-radius: 5px;
+}
+
+.article p {
+    margin: 0.5em 0;
+}
+
+
+.paginate {
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+ }
+ 
+ .paginate ul {
+     display: flex;
+     width: fit-content;
+     gap: 15px;
+     list-style: none;
+ 
+ }
+ 
+ .paginate ul li {
+     background-color: whitesmoke;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 10px;
+     border-radius: 50%;
+     cursor: pointer;
+ }
+ 
+ .paginate ul li a {
+     text-decoration: none;
+     color: black;
+ }
+ .active_paginator{
+     box-shadow: 0 0 5px black;
+ }
+
+ .show_blog_details{
+    text-decoration: none;
+    box-shadow: 0 0 5px var(--background-color);
+    bna
+ }

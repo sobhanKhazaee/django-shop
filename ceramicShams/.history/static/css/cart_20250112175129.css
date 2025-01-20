@@ -1,0 +1,55 @@
+:root {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --background-color: #dfdfdf;
+    --text-color: #333333;
+}
+
+.cart_content{
+    width: 100%;
+    height: auto;
+    padding: 40px 10%;
+}
+.cart_table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+.cart_table th{
+    background: var(--secondary-color);
+}
+.cart_table th, .cart_table td{
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+    text-align: center;
+}
+.count_cart button {
+    padding: 2px 7px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+}
+.total_price{
+    background: var(--secondary-color);
+    padding: 20px;
+}
+
+.empty_cart{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cart_product_image{
+    width: 75px;
+    height: 75px;
+}
+.pay{
+    tex
+}

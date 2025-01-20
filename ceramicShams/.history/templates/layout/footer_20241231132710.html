@@ -1,0 +1,52 @@
+{% load static %}
+<footer>
+  <div class="footer_container">
+    <div class="site-info">
+      <img src="{{ set.logo.url }}" alt="لوگو سایت" class="logo" />
+      
+      <p>{{ set.about }}</p>
+      <p>تلفن:
+
+        <a href="tel:{{ set.phone_number }}">{{ set.phone_number }}</a>
+      </p>
+      <p>ایمیل: 
+        <a href="mailto:{{ set.email }}">{{ set.email }}</a>
+      </p>
+    </div>
+
+    <div class="footer-links">
+      {% for cat in cat_link %}
+        <div class="link-category">
+          <h4>{{ cat.linkCategory }}</h4>
+          <ul>
+            {% for link in links %}
+              <li>
+                <a href="{{ link.link }}">{{ link.link_title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+
+      <div class="footer-links">
+
+          <div class="link-category">
+            <h4>رسانه ها</h4>
+            <ul>
+              {% for social in social %}
+                <li>
+                  <a href="{{ social.link }}">
+                    <img src="{{social.icon.url}}" alt="" width="30px">
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+      </div>
+
+
+
+  </div>
+</footer>

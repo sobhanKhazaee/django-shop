@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% block title %}
+  صفحه ثبت نام
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/contactUs.css' %}?v=0.0.3" />
+{% endblock %}
+
+{% block content %}
+  <form action="{% url 'contact_us' %}" method="post" class="contactUsForm" novalidate>
+    {% csrf_token %}
+    <div>
+      {{ form.email.label_tag }}
+      {{ form.email }}
+      <p class="error_massage">{{ form.email.errors }}</p>
+    </div>
+
+    <div>{{ form.password.label_tag }}
+      {{ form.password }}
+      {{ form.password.errors }}</div>
+
+    <div>{{ form.confirm_password.label_tag }}
+      {{ form.confirm_password }}
+      {{ form.confirm_password.errors }}</div>
+
+    <button type="submit" class="submit_btn">ثبت نام</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load  %}
+
+{% block title %}
+  مقالات
+{% endblock %}
+{% block head_refrences %}
+<link rel="stylesheet" href="{% static 'css/articels_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Sidebar for categories -->
+    <div class="sidebar">
+        <h2>دسته‌بندی‌ها</h2>
+        <ul>
+            <li><a href="#">دسته‌بندی ۱</a></li>
+            <li><a href="#">دسته‌بندی ۲</a></li>
+            <li><a href="#">دسته‌بندی ۳</a></li>
+            <li><a href="#">دسته‌بندی ۴</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content for articles -->
+    <div class="main-content">
+        {% for articel in articels %}
+        <div class="article">
+            <h3>{{articel.title}}</h3>
+            <img src="{{}}" alt="تصویر مقاله ۱">
+            <p>{{articel.summary}}</p>
+        </div>
+        {% endfor %}
+
+
+    </div>
+</div>
+{% endblock  %}

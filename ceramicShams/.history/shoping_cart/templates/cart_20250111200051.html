@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  سبد خرید
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main class="cart_content">
+    <table>
+      <tr>
+        <th>نام محصول</th>
+        <th>عکس</th>
+        <th>قیمت واحد</th>
+        <th>تعداد</th>
+        <th></th>
+      </tr>
+      {% for order in orders %}{% endfor %}
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </main>
+{% endblock %}

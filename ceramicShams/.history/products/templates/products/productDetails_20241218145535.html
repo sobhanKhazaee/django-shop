@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  جزئیات محصول
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/productDetails.css' %}?v=0.0.2" />
+{% endblock %}
+
+{% block content %}
+  <main class="productDetails">
+    <div class="detail_box">
+      <div class="box_img">
+        <img src="{{ product.image.url }}" alt="" />
+      </div>
+      <div class="box_explain">
+        <section>
+          <label>نام :</label>
+          <span class="cardPrice">{{ product.name }}</span>
+        </section>
+        <section>
+          <label>قیمت :</label>
+          <span class="cardPrice">{{ product.price|intcomma }}</span>
+          <span>تومان</span>
+        </section>
+        <section>
+          <label>توضیحات :</label><br />
+          <span>{{ product.description }}</span>
+        </section>
+        {% if product.brand %}
+          <section>
+            <label>برند :</label>
+            <span  class="cardPrice">{{ product.brand }}</span>
+          </section>
+        {% endif %}
+        {% if product_tags %}
+          <section>
+            <label>برچسب ها :</label>
+            {% for tag in product_tags %}
+              <a href="" class="tag">#{{ tag.tag }}</a>
+            {% endfor %}
+          </section>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+{% endblock %}

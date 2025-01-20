@@ -1,0 +1,14 @@
+<ul>
+  <li>
+    <a href="" class="">اطلاعات</a>
+  </li>
+  <li>
+    <a href="{% url 'edit_profile' %}" class="{% if request.resolver_match.url_name == 'edit_profile' %}active_sidebar{% endif %}">ویرایش اطلاعات</a>
+  </li>
+  <li>
+    <a href="" class="">سفارشات</a>
+  </li>
+  <li>
+    <a href="" class="">تیکت ها</a>
+  </li>
+</ul>

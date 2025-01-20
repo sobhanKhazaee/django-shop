@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+  پنل کاربری
+{% endblock %}
+
+{% block content %}
+<main class="dashboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>پنل کاربری</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="dashboard_menu">
+          <ul>
+            <li>
+              <a href="{% url 'user_orders' %}">سفارشات</a>
+            </li>
+            <li>
+              <a href="{% url 'user_info' %}">اطلاعات کاربری</a>
+            </li>
+            <li>
+              <a href="{% url 'change_password' %}">تغییر رمز عبور</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

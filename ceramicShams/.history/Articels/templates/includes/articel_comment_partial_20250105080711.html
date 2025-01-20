@@ -1,0 +1,30 @@
+{% if comments %}
+{% for comment in comments %}
+  <div class="comment_box">
+    <section class="comment_details">
+      <span>{{ comment.created_at|show_jalali_date }}</span>
+      <span>{{ comment.user.username }}</span>
+    </section>
+    <br />
+    <section>{{ comment.comment }}</section>
+    <section class="reply_comment">
+      <button class="reply_button" parent_id="{{comment.id}}">
+        <span>پاسخ</span>
+        <i class="fas fa-reply"></i>
+      </button>
+    </section>
+  </div>
+  {% for answer in comment.articelcomments_set.all %}
+    <div class="comment_box" style="margin-right: 40px;">
+      <section class="comment_details">
+        <span>{{ answer.created_at|show_jalali_date }}</span>
+        <span>{{ answer.user.username }}</span>
+      </section>
+      <br />
+      <section>{{ answer.comment }}</section>
+    </div>
+  {% endfor %}
+{% endfor %}
+{% else %}
+<p id="no_comment">هنوز نظری برای این مقاله ثبت نشده</p>
+{% endif %}

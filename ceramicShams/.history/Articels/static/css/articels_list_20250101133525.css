@@ -1,0 +1,76 @@
+:root {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --background-color: #dfdfdf;
+    --text-color: #333333;
+}
+
+
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 40px 0;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: var(--secondary-color);
+    padding: 1em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 0.5em 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.5em;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.main-content {
+    width: 75%;
+    padding: 1em;
+}
+
+.article {
+    background-color: var(--secondary-color);
+    margin-bottom: 1em;
+    padding: 1em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.article h3 {
+    color: var(--primary-color);
+}
+
+.article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.article p {
+    margin: 0.5em 0;
+}

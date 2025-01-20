@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% comment %}عنوان url{% endcomment %}
+{% block title %}
+  ارتباط با ما
+{% endblock %}
+
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/contactUs.css' %}?v=0.0.2" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form action="{% url "contact_us" %}" method="post" class="contactUsForm">
+      {{ contact_form }}
+
+      <button type="submit">ارسال</button>
+    </form>
+  </div>
+{% endblock %}
+
+{% block end_refrences %}
+  <script src="{% static 'ckeditor/ckeditor.js' %}"></script>
+  <script>
+    $(document).ready(function () {
+      CKEDITOR.replace('text_feild', {
+        language: 'fa', // تنظیم زبان به فارسی
+        contentsLangDirection: 'rtl' // راست‌چین کردن محتوا
+      })
+    })
+  </script>
+{% endblock %}

@@ -1,0 +1,16 @@
+.contactUsForm{
+    background: whitesmoke;
+    width: 100%;
+    min-height: 400px;
+    border-radius: 5px;
+}
+.container{
+    width: 100%;
+    height: auto;
+    padding: 20px 20%;
+    
+}
+.inp_feild{
+    display: block;
+    width: 100;
+}

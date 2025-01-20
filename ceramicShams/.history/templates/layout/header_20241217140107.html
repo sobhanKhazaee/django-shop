@@ -1,0 +1,29 @@
+<header class="header">
+  <ul>
+    <li>
+      <a href="{% url 'home' %}">صفحه اصلی</a>
+    </li>
+    <li>
+      <a class="submenu_btn">
+        محصولات
+        <i class="fas fa-chevron-down"></i>
+      </a>
+      <div class="submenu">
+        <ul>
+          {% for cat in cats %}
+            <li>
+              <a href="{% url "sortByCat" cat_id= %}">{{ cat.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+
+    <li>
+      <a href="{% url 'home' %}">درباره ما</a>
+    </li>
+    <li>
+      <a href="{% url 'home' %}">ارتباط با ما</a>
+    </li>
+  </ul>
+</header>

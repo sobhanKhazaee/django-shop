@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  صفحه ثبت نام
+{% endblock %}
+{% block head_refrences %}
+  <link rel="stylesheet" href="{% static 'css/register.css' %}?v=0.0.2" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form action="{% url 'register_page' %}" method="post" class="contactUsForm" novalidate>
+      {% csrf_token %}
+
+      <h1>فراموشی رمز عبور</h1>
+      <div>
+        <p>
+            لطفا ایمیلی که با آن ثبت نام کرده اید را وارد کنید
+        </p>
+      </div>
+
+      <div>
+        {{ forget.email.label_tag }}
+        {{ forget.email }}
+        <p class="error_massage">{{ forget.email.errors }}</p>
+      </div>
+
+      <button type="submit" class="submit_btn">ثبت نام</button>
+    </form>
+  </div>
+{% endblock %}
